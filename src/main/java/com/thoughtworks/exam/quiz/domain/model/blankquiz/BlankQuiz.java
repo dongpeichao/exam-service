@@ -12,11 +12,11 @@ import lombok.*;
 public class BlankQuiz {
     private BlankQuizId id;
     private String teacherId;
-    private String content;
+    private String question;
     private Integer score;
     private String referenceAnswer;
 
-    public static BlankQuiz create(final String teacherId, final String content,
+    public static BlankQuiz create(final String teacherId, final String question,
                                    final Integer score, final String referenceAnswer) throws IllegalScoreException {
         if (score > 100 || score <= 0) {
             throw new IllegalScoreException(score);
@@ -24,7 +24,7 @@ public class BlankQuiz {
         return BlankQuiz.builder()
                 .id(BlankQuizId.generate())
                 .teacherId(teacherId)
-                .content(content)
+                .question(question)
                 .score(score)
                 .referenceAnswer(referenceAnswer)
                 .build();
@@ -35,7 +35,7 @@ public class BlankQuiz {
         return BlankQuiz.builder()
                 .id(id)
                 .teacherId(teacherId)
-                .content(content)
+                .question(content)
                 .score(score)
                 .referenceAnswer(referenceAnswer)
                 .build();

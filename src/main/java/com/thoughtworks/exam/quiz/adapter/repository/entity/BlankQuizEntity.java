@@ -16,14 +16,14 @@ public class BlankQuizEntity {
     @Id
     private String id;
 
-    private String content;
+    private String question;
     private String referenceAnswer;
     private String teacherId;
     private int score;
 
     public BlankQuiz toModel() {
         return BlankQuiz.builder().id(new BlankQuizId(id))
-                .content(content).teacherId(teacherId)
+                .question(question).teacherId(teacherId)
                 .referenceAnswer(referenceAnswer)
                 .score(score)
                 .build();
@@ -33,7 +33,7 @@ public class BlankQuizEntity {
     public static BlankQuizEntity fromModel(BlankQuiz blankQuiz) {
         BlankQuizEntity result = new BlankQuizEntity();
         result.id = blankQuiz.getId().toString();
-        result.content = blankQuiz.getContent();
+        result.question = blankQuiz.getQuestion();
         result.teacherId = blankQuiz.getTeacherId();
         result.referenceAnswer = blankQuiz.getReferenceAnswer();
         result.score = blankQuiz.getScore();

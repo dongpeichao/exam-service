@@ -14,7 +14,7 @@ public class BlankQuizApplicationService {
         this.blankQuizRepository = blankQuizRepository;
     }
 
-    public BlankQuizId createQuiz(final CreateQuizCommand command) throws IllegalScoreException {
+    public BlankQuizId createQuiz(final CreateBlankQuizCommand command) throws IllegalScoreException {
         BlankQuiz blankQuiz = BlankQuiz.create(command.getTeacherId(), command.getQuestion(),
                 command.getScore(), command.getReferenceAnswer());
         blankQuizRepository.save(blankQuiz);

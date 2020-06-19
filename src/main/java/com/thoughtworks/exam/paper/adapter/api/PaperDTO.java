@@ -3,9 +3,6 @@ package com.thoughtworks.exam.paper.adapter.api;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * @author gitqh
- */
 @Getter
 @AllArgsConstructor
 public class PaperDTO {

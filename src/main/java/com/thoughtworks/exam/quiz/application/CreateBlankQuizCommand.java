@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateQuizCommand {
+public class CreateBlankQuizCommand {
     private String teacherId;
     private String question;
     private Integer score;
