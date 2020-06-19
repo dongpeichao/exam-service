@@ -14,14 +14,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor(staticName = "of")
 @Entity
-@Table(name = "t_examination")
+@Table(name = "t_examinatio")
 public class ExaminationEntity {
     @Id
     private String id;
@@ -29,6 +29,8 @@ public class ExaminationEntity {
     private String blankQuizzes;
 
     private String teacherId;
+
+    private Date startedTime;
 
     public Paper toModel() {
         return Paper.builder()
