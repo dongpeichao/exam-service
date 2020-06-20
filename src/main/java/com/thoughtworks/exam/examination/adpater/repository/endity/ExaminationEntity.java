@@ -21,7 +21,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "t_examinatio")
+@Table(name = "t_examination")
 public class ExaminationEntity {
     @Id
     private String id;
@@ -30,7 +30,7 @@ public class ExaminationEntity {
 
     private String teacherId;
 
-    private Date startedTime;
+    private String startedTime;
 
     public Paper toModel() {
         return Paper.builder()

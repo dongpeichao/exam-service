@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @SuppressWarnings("checkstyle:magicnumber")
@@ -21,15 +22,7 @@ public class Examination {
     private PaperId id;
     private List<BlankQuiz> blankQuizzes;
     private String teacherId;
-
-    public static Examination assemble(final List<BlankQuiz> blankQuizzes,
-                                       final String teacherId) {
-        return Examination.builder()
-                .id(PaperId.generate())
-                .blankQuizzes(blankQuizzes)
-                .teacherId(teacherId)
-                .build();
-    }
+    private LocalDateTime startedTime;
 
     @ValueObject
     @Data
