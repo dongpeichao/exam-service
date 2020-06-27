@@ -1,4 +1,4 @@
-package com.thoughtworks.exam.examination.adpater.repository.endity;
+package com.thoughtworks.exam.answer_sheet.adpater.repository.endity;
 
 import lombok.Data;
 
@@ -10,18 +10,16 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "t_examination")
-public class ExaminationEntity {
+@Table(name = "t_answer_sheet")
+public class AnswerSheetEntity {
     @Id
     private String id;
 
-    private String quizzes;
-
     private String teacherId;
-
-    private int duration;
+    private String examinationId;
+    private String studentId;
+    private String answer;
 
     private LocalDateTime startedTime;
-
     private LocalDateTime submittedTime;
 }

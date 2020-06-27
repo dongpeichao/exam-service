@@ -1,14 +1,11 @@
 package com.thoughtworks.exam.quiz.adapter.repository.entity;
 
-import com.thoughtworks.exam.quiz.domain.model.blankquiz.BlankQuiz;
-import com.thoughtworks.exam.quiz.domain.model.blankquiz.BlankQuizId;
+import com.thoughtworks.exam.quiz.domain.model.quiz.Quiz;
+import com.thoughtworks.exam.quiz.domain.model.quiz.QuizId;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "t_quiz")
@@ -21,8 +18,8 @@ public class BlankQuizEntity {
     private String teacherId;
     private int score;
 
-    public BlankQuiz toModel() {
-        return BlankQuiz.builder().id(new BlankQuizId(id))
+    public Quiz toModel() {
+        return Quiz.builder().id(new QuizId(id))
                 .question(question).teacherId(teacherId)
                 .referenceAnswer(referenceAnswer)
                 .score(score)
@@ -30,13 +27,13 @@ public class BlankQuizEntity {
     }
 
 
-    public static BlankQuizEntity fromModel(BlankQuiz blankQuiz) {
+    public static BlankQuizEntity fromModel(Quiz quiz) {
         BlankQuizEntity result = new BlankQuizEntity();
-        result.id = blankQuiz.getId().toString();
-        result.question = blankQuiz.getQuestion();
-        result.teacherId = blankQuiz.getTeacherId();
-        result.referenceAnswer = blankQuiz.getReferenceAnswer();
-        result.score = blankQuiz.getScore();
+        result.id = quiz.getId().toString();
+        result.question = quiz.getQuestion();
+        result.teacherId = quiz.getTeacherId();
+        result.referenceAnswer = quiz.getReferenceAnswer();
+        result.score = quiz.getScore();
         return result;
     }
 }

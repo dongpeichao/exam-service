@@ -1,4 +1,4 @@
-package com.thoughtworks.exam.paper.domain.model.paper;
+package com.thoughtworks.exam.quiz.domain.model.quiz;
 
 import com.thoughtworks.exam.common.ddd.annotation.ValueObject;
 import com.thoughtworks.exam.common.ddd.core.AbstractId;
@@ -8,14 +8,13 @@ import java.util.UUID;
 
 @ValueObject
 @EqualsAndHashCode(callSuper = true)
-public
-class PaperId extends AbstractId {
-    public PaperId(final String value) {
+public class QuizId extends AbstractId {
+    public QuizId(final String value) {
         super(value);
     }
 
-    public static PaperId generate() {
-        return new PaperId(UUID.randomUUID().toString());
+    public static QuizId generate() {
+        return new QuizId(UUID.randomUUID().toString());
     }
 
     @Override

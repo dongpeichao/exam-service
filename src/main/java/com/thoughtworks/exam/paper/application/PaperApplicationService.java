@@ -19,16 +19,16 @@ public class PaperApplicationService {
 
     public PaperId assemblePaper(AssemblePaperCommand command)
             throws IllegalQuizzesCountException {
-        List<Paper.BlankQuiz> blankQuizzes = blankQuizFrom(command);
+        List<Paper.Quiz> blankQuizzes = blankQuizFrom(command);
         String teacherId = command.getTeacherId();
         Paper paper = Paper.assemble(blankQuizzes, teacherId);
         paperRepository.save(paper);
         return paper.getId();
     }
 
-    private List<Paper.BlankQuiz> blankQuizFrom(AssemblePaperCommand command) {
+    private List<Paper.Quiz> blankQuizFrom(AssemblePaperCommand command) {
         return command.getBlankQuizzes().stream()
-                .map(quiz -> new Paper.BlankQuiz(quiz.getId(), quiz.getScore()))
+                .map(quiz -> new Paper.Quiz(quiz.getId(), quiz.getScore()))
                 .collect(Collectors.toList());
     }
 }

@@ -1,23 +1,23 @@
 package com.thoughtworks.exam.quiz.application;
 
-import com.thoughtworks.exam.quiz.domain.model.blankquiz.BlankQuiz;
-import com.thoughtworks.exam.quiz.domain.model.blankquiz.BlankQuizId;
-import com.thoughtworks.exam.quiz.domain.model.blankquiz.BlankQuizRepository;
-import com.thoughtworks.exam.quiz.domain.model.blankquiz.IllegalScoreException;
+import com.thoughtworks.exam.quiz.domain.model.quiz.Quiz;
+import com.thoughtworks.exam.quiz.domain.model.quiz.QuizId;
+import com.thoughtworks.exam.quiz.domain.model.quiz.QuizRepository;
+import com.thoughtworks.exam.quiz.domain.model.quiz.IllegalScoreException;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BlankQuizApplicationService {
-    private final BlankQuizRepository blankQuizRepository;
+    private final QuizRepository quizRepository;
 
-    public BlankQuizApplicationService(BlankQuizRepository blankQuizRepository) {
-        this.blankQuizRepository = blankQuizRepository;
+    public BlankQuizApplicationService(QuizRepository quizRepository) {
+        this.quizRepository = quizRepository;
     }
 
-    public BlankQuizId createQuiz(final CreateBlankQuizCommand command) throws IllegalScoreException {
-        BlankQuiz blankQuiz = BlankQuiz.create(command.getTeacherId(), command.getQuestion(),
+    public QuizId createQuiz(final CreateBlankQuizCommand command) throws IllegalScoreException {
+        Quiz quiz = Quiz.create(command.getTeacherId(), command.getQuestion(),
                 command.getScore(), command.getReferenceAnswer());
-        blankQuizRepository.save(blankQuiz);
-        return blankQuiz.getId();
+        quizRepository.save(quiz);
+        return quiz.getId();
     }
 }

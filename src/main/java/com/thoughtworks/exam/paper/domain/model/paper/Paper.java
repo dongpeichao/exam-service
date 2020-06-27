@@ -18,21 +18,21 @@ import java.util.List;
 @EqualsAndHashCode(of = "id")
 public class Paper {
     private PaperId id;
-    private List<BlankQuiz> blankQuizzes;
+    private List<Quiz> quizzes;
     private String teacherId;
 
-    public static Paper assemble(final List<BlankQuiz> blankQuizzes,
+    public static Paper assemble(final List<Quiz> quizzes,
                                  final String teacherId) throws IllegalQuizzesCountException {
-        validateQuizzes(blankQuizzes);
+        validateQuizzes(quizzes);
         return Paper.builder()
                 .id(PaperId.generate())
-                .blankQuizzes(blankQuizzes)
+                .quizzes(quizzes)
                 .teacherId(teacherId)
                 .build();
     }
-    private static void validateQuizzes(final List<BlankQuiz> blankQuizzes) throws IllegalQuizzesCountException {
-        if (blankQuizzes.size() > 20 || blankQuizzes.size() < 2) {
-            throw new IllegalQuizzesCountException(blankQuizzes.size());
+    private static void validateQuizzes(List<Quiz> quizzes) throws IllegalQuizzesCountException {
+        if (quizzes.size() >10 || quizzes.size() < 5) {
+            throw new IllegalQuizzesCountException(quizzes.size());
         }
     }
 
@@ -40,7 +40,7 @@ public class Paper {
     @Data
     @Builder
     @AllArgsConstructor
-    public static class BlankQuiz {
+    public static class Quiz {
         private String id;
         private Integer score;
     }

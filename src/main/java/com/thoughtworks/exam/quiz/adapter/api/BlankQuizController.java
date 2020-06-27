@@ -2,7 +2,7 @@ package com.thoughtworks.exam.quiz.adapter.api;
 
 import com.thoughtworks.exam.quiz.application.BlankQuizApplicationService;
 import com.thoughtworks.exam.quiz.application.CreateBlankQuizCommand;
-import com.thoughtworks.exam.quiz.domain.model.blankquiz.IllegalScoreException;
+import com.thoughtworks.exam.quiz.domain.model.quiz.IllegalScoreException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

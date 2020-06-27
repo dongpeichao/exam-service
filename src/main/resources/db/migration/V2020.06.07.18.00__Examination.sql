@@ -3,7 +3,7 @@ CREATE TABLE `t_examination` (
    `id` varchar2(255) NOT NULL,
    `paper_id` varchar2(255) NOT NULL,
    `teacher_id` varchar2(255) NOT NULL,
-   `blank_quizzes` blob NOT NULL,
-   `started_time` TIMESTAMP NULL,
+   `duration` INT NULL DEFAULT 120,
+   `quizzes` blob NOT NULL,
    PRIMARY KEY (`id`)
 );
