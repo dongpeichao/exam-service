@@ -4,6 +4,6 @@ CREATE TABLE `t_examination` (
    `paper_id` varchar2(255) NOT NULL,
    `teacher_id` varchar2(255) NOT NULL,
    `duration` INT NULL DEFAULT 120,
-   `quizzes` blob NOT NULL,
+   `quizzes` varchar2(4000) NOT NULL,
    PRIMARY KEY (`id`)
 );

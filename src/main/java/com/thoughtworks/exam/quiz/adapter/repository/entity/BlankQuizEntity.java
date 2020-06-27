@@ -6,6 +6,7 @@ import com.thoughtworks.exam.quiz.domain.model.quiz.QuizId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "t_quiz")
